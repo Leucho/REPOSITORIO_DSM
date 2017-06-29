@@ -1,0 +1,76 @@
+<ion-view view-title="Mi album">
+      <ion-content >
+
+             <ion-refresher
+                    pulling-text="Cargando..."
+                    on-refresh="cargarAlbum()">  
+             </ion-refresher>
+
+        <head>
+            <title></title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="stylesheet" href="assets/css/main.css" />
+        </head>
+          
+    <body id="top">
+        <section id="banner" data-video="images/banner">
+                    <div class="inner">
+                        <header>
+                            <h1></h1>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                           <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+                            <div class='content2'> 
+                                <div class='visible'>
+                                    <ul>      
+                                        <li>Album</li>
+                                        <li>de</li>
+                                        <li>Fotos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                     
+                    </div>
+                </section>
+
+            <!-- Main -->
+                <div id="fotos" style="background-color:#777777">
+                    <div class="inner">
+
+                        <h3 style="text-align: center; color: #1C1C1C; font-family: tahoma">Ordenar por: <button ng-click="order('title')"  class="button">Titulo</button> </h3>
+                        <div class="list cards"  ng-repeat="album in albumcen">
+
+                            <div style="background-color: #f1f1f1; text-align: center "; class="hit-the-floor">{{album.title}}</div>
+                                        
+              
+                             <div class="box"  >
+                                     <ion-item detail-push class="item-thumbnail-left" href="#/tab/foto/{{albumcin.farm}}/{{albumcin.server}}/{{albumcin.id}}/{{albumcin.secret}}/{{albumcin.title}}" ng-repeat="albumcin in album.photo | orderBy:orden" type="item-text-wrap">
+
+                                        <img ng-src="https://farm{{albumcin.farm}}.staticflickr.com/{{albumcin.server}}/{{albumcin.id}}_{{albumcin.secret}}.jpg">
+                                        <h2><a style="color: #1C1C1C; font-size: 30px; font-family: times">{{albumcin.title}} </a><a>{{albumcin.description['_content']}}</a></h2>                                                
+                                    </ion-item> 
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+        <!-- Scripts -->
+     
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/jquery.poptrox.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+
+    </body>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,86 @@
+  <ion-view view-title="Album">
+    <ion-content>
+       <ion-refresher
+            pulling-text="..."
+            on-refresh="cargarAlbumes()">  <!-- Aca lo que hago es guardar localmente los albumes traidos por http>  -->     
+       </ion-refresher> 
+        
+        <!-- <ion-refresher
+            pulling-text="..."
+            on-refresh="verificarConexion()">   si se guardo los titulos de los albumes en la bd       
+       </ion-refresher> -->
+        
+
+       <head>
+            <title></title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="stylesheet" href="assets/css/main.css" />
+            <link rel="stylesheet" href="assets/css/footer-basic-centered.css">
+        </head>
+        
+    <body id="top">
+
+                <section id="banner" data-video="images/banner">
+                    <div class="inner">
+                        <header>
+                            <h1></h1>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                           <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+                            
+                            <div class='content2'>  
+                                <div class='visible'>   
+                                    <ul> 
+                                        <li>Desarrollo</li>
+                                        <li>Software</li>     
+                                        <li>Multipantalla</li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </header>
+                      </div>
+                </section>
+
+            <!-- Main -->
+             <div id="fotos" style="background-color:#777777">
+                    <div class="inner">
+
+                        <div style="text-align: center">
+                           <!-- <h3 style="text-align: center; color: #1C1C1C; font-family: tahoma">Ordenar por:</h3>-->
+                                    <button ng-click="order('title._content')" class="button">Titulo</button>   
+                                    <button ng-click="order('date_create')" class="button">Fecha Creacion</button>   
+                                  <!--  <button ng-click="order('date_update')">Fecha Actualizacion</button>-->  
+                                    <button ng-click="order('photos')" class="button">Cant. de Fotos</button>   
+                         </div> 
+                    <!-- Boxes -->
+                        <div class="list cards" ng-repeat="album in albumes">
+                            <div class="box"  >
+                                  <ion-item detail-push class="item-thumbnail-left" href="#/tab/album/{{albumcin.id}}"  ng-repeat="albumcin in album.photoset| orderBy:orden" type="item-text-wrap" >
+
+                                    <img ng-src="https://farm{{albumcin.farm}}.staticflickr.com/{{albumcin.server}}/{{albumcin.primary}}_{{albumcin.secret}}.jpg">
+                                    <div class="inner" class="item item-text-wrap">
+                                         <h2><a style="color: #1C1C1C; font-size: 30px; font-family: times">{{albumcin.title._content}} </a></h2>
+                                    </div>
+                                
+                                </ion-item>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+        <!-- Scripts -->
+     
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/jquery.poptrox.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+    </body>
+
+    </ion-content>
+</ion-view>

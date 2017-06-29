@@ -1,0 +1,79 @@
+<ion-view view-title="Mi Foto">
+  <ion-content>
+  
+           
+     <ion-refresher
+            pulling-text="Cargando..."
+            on-refresh="cargarFoto_Comentarios()">  
+     </ion-refresher>
+      
+            <head>
+                <title></title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="stylesheet" href="assets/css/main.css" />
+            </head>
+    <body id="top">
+            <section id="banner" data-video="images/banner">
+                    <div class="inner">
+                        <header>
+                                <h1></h1>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                           <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+                            <div class='content2'>
+                                <div class='visible'>
+                                    <ul>
+                                        <li>Foto seleccionada...</li>
+                                        <li>"{{nombre_foto}}"</li>
+                                    </ul>  
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+            </section>
+               
+                    <div id="fotos">
+                        <div class="inner">
+
+                        <!-- Boxes -->
+                            <div class="thumbnails">
+                                <div class="box" >
+                                    <div class="item item-image" style="min-height:100px">
+                                        <div class="div-img" >
+                                            <img class="img" ng-src="https://farm{{farm_foto}}.staticflickr.com/{{server_foto}}/{{id_foto}}_{{secret_foto}}.jpg" title='{{nombre_foto}}' alt='{{nombre_foto}}'>
+                                            <div class="text">{{nombre_foto}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="inner" class="item item-text-wrap">
+                                              <h3>Comentarios</h3>
+                                    </div>
+
+                                    <div class="thumbnails"  ng-repeat="comentario in comentarios">
+                                       <div class="item item-text-wrap" ng-repeat="coment in comentario.comment"  >
+                                                <p style="color:#17202A">{{coment.realname}}: {{coment._content}} </p>
+                                        </div>
+                                   </div>
+                                    
+                                    <ion-icon name="mail"><button data-role="button" data-bind="click: shareViaEmail">Compartir via email</button></ion-icon>
+
+                                </div>
+                            </div>
+                       </div>
+                </div>
+
+        <!-- Scripts -->
+     
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/jquery.poptrox.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+    </body>
+
+    </ion-content>
+</ion-view>
